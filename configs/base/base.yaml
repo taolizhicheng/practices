@@ -1,0 +1,57 @@
+DATASET:
+  TRAIN:
+    NAME: BaseDataset
+    ARGS:
+      PREPROCESSOR:
+        NAME: BasePreprocessor
+        ARGS: {}
+      TRANSFORMS:
+        - NAME: BaseTransform
+          ARGS: {}
+  TEST:
+    NAME: BaseDataset
+    ARGS:
+      PREPROCESSOR:
+        NAME: BasePreprocessor
+        ARGS: {}
+      TRANSFORMS:
+        - NAME: BaseTransform
+          ARGS: {}
+
+MODEL:
+  NAME: BaseModel
+  ARGS: {}
+
+LOSS:
+  NAME: BaseLoss
+  ARGS: {}
+
+OPTIMIZER:
+  NAME: BaseOptimizer
+  ARGS: {}
+
+SCHEDULER:
+  NAME: BaseScheduler
+  ARGS: {}
+
+POSTPROCESSOR:
+  NAME: BasePostprocessor
+  ARGS: {}
+
+METRIC:
+  NAME: BaseMetric
+  ARGS: {}
+
+HYPER:
+  TRAIN:
+    epochs: 100
+    batch_size: 16
+    shuffle: True
+  EVAL:
+    batch_size: 1
+    shuffle: False
+  OTHERS:
+    summary_dir: null
+    checkpoint_dir: null
+    checkpoint_name: null
+    logger: null

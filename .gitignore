@@ -1,0 +1,17 @@
+# IDE文件
+.vscode/
+
+# jupyter notebook
+notebooks/
+.ipynb_checkpoints/
+
+# 临时文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 打包文件
+dist/
+build/
+*.egg-info/
