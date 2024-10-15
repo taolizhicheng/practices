@@ -1,7 +1,7 @@
-from practices.utils.build import get_builder
+from .. import PREPROCESSOR_BUILDER
 
 
-PREPROCESSOR_BUILDER = get_builder("PREPROCESSOR_BUILDER")
+__all__ = ["BasePreprocessor"]
 
 
 @PREPROCESSOR_BUILDER.register("BasePreprocessor")

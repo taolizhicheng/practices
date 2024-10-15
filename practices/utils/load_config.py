@@ -4,6 +4,9 @@ import json
 
 __all__ = ['load_config', 'save_config']
 
+def __dir__():
+    return __all__
+
 
 def load_yaml(file_path):
     with open(file_path, 'r') as f:

@@ -5,6 +5,9 @@ from inspect import signature, isclass, isfunction
 
 __all__ = ['check_func_args', 'check_class_args', 'get_callable_type']
 
+def __dir__():
+    return __all__
+
 
 def check_func_args(func):
     """

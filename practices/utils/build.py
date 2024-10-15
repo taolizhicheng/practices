@@ -4,11 +4,14 @@ import warnings
 from typing import Callable
 
 
-from practices.utils.check_type import check_class_args, check_func_args, get_callable_type
-from practices.utils.ast import get_register_info_from_directory, get_register_info_from_file
+from .check_type import check_class_args, check_func_args, get_callable_type
+from .ast import get_register_info_from_directory, get_register_info_from_file
 
 
 __all__ = ['Builder', 'build_indices', 'get_builder', 'build_instance']
+
+def __dir__():
+    return __all__
 
 
 @check_class_args

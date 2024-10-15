@@ -6,6 +6,9 @@ from .constants import TOP_DIR
 
 __all__ = ["get_register_info_from_file", "get_register_info_from_directory"]
 
+def __dir__():
+    return __all__
+
 
 def get_relative_import(path: str):
     if not path.startswith(TOP_DIR):

@@ -1,11 +1,7 @@
-from practices.utils.build import get_builder
+from .. import DATASET_BUILDER, PREPROCESSOR_BUILDER, TRANSFORM_BUILDER
+
 
 __all__ = ["BaseDataset"]
-
-
-DATASET_BUILDER = get_builder("DATASET_BUILDER")
-PREPROCESSOR_BUILDER = get_builder("PREPROCESSOR_BUILDER")
-TRANSFORM_BUILDER = get_builder("TRANSFORM_BUILDER")
 
 
 @DATASET_BUILDER.register('BaseDataset')

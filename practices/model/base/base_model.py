@@ -1,10 +1,11 @@
 import torch.nn as nn
-from practices.utils.build import get_builder
+from .. import MODEL_BUILDER
+
 
 __all__ = ["BaseModel"]
 
-
-MODEL_BUILDER = get_builder("MODEL_BUILDER")
+def __dir__():
+    return __all__
 
 
 @MODEL_BUILDER.register("BaseModel")

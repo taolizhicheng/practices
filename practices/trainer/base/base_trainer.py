@@ -1,11 +1,15 @@
 import torch
 from torch.utils.tensorboard import SummaryWriter
 
-from practices.utils.build import get_builder, build_instance
-from practices.utils.load_config import save_config
+from ...utils.build import build_instance
+from ...utils.load_config import save_config
+from .. import TRAINER_BUILDER
 
 
-TRAINER_BUILDER = get_builder("TRAINER_BUILDER")
+__all__ = ["BaseTrainer"]
+
+def __dir__():
+    return __all__
 
 
 @TRAINER_BUILDER.register("BaseTrainer")

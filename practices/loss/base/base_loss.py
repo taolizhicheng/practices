@@ -1,11 +1,8 @@
 import torch.nn as nn
-from practices.utils.build import get_builder
+from .. import LOSS_BUILDER
 
 
 __all__ = ["BaseLoss"]
-
-
-LOSS_BUILDER = get_builder("LOSS_BUILDER")
 
 
 @LOSS_BUILDER.register("BaseLoss")

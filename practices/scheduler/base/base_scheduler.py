@@ -1,10 +1,13 @@
 import torch.optim as optim
 
-from practices.utils.build import get_builder
-from practices.optimizer.base.base_optimizer import BaseOptimizer
+from .. import SCHEDULER_BUILDER
+from ...optimizer.base.base_optimizer import BaseOptimizer
 
 
-SCHEDULER_BUILDER = get_builder("SCHEDULER_BUILDER")
+__all__ = ["BaseScheduler"]
+
+def __dir__():
+    return __all__
 
 
 @SCHEDULER_BUILDER.register("BaseScheduler")

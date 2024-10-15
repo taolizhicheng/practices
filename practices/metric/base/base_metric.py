@@ -1,7 +1,10 @@
-from practices.utils.build import get_builder
+from .. import METRIC_BUILDER
 
 
-METRIC_BUILDER = get_builder("METRIC_BUILDER")
+__all__ = ["BaseMetric"]
+
+def __dir__():
+    return __all__
 
 
 @METRIC_BUILDER.register("BaseMetric")

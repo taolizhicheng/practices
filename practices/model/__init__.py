@@ -1,10 +1,15 @@
 import os
+from ..utils.build import build_indices, get_builder
 
-from practices.utils.build import build_indices
+
+__all__ = ["MODEL_BUILDER"]
+
+def __dir__():
+    return __all__
 
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-
+MODEL_BUILDER = get_builder("MODEL_BUILDER")
 
 # 预注册base目录下的所有模块
 build_indices(os.path.join(THIS_DIR, "base"))

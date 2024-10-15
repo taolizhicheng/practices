@@ -1,6 +1,6 @@
 import torch.optim as optim
 
-from practices.utils.build import get_builder
+from .. import OPTIMIZER_BUILDER
 
 
 __all__ = [
@@ -21,8 +21,8 @@ __all__ = [
     "SparseAdam",
 ]
 
-
-OPTIMIZER_BUILDER = get_builder("OPTIMIZER_BUILDER")
+def __dir__():
+    return __all__
 
 
 BaseOptimizer = optim.Optimizer

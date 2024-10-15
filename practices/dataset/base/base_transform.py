@@ -1,7 +1,7 @@
-from practices.utils.build import get_builder
+from .. import TRANSFORM_BUILDER
 
 
-TRANSFORM_BUILDER = get_builder("TRANSFORM_BUILDER")
+__all__ = ["BaseTransform"]
 
 
 @TRANSFORM_BUILDER.register("BaseTransform")

@@ -1,7 +1,10 @@
-from practices.utils.build import get_builder
+from .. import POSTPROCESSOR_BUILDER
 
 
-POSTPROCESSOR_BUILDER = get_builder("POSTPROCESSOR_BUILDER")
+__all__ = ["BasePostprocessor"]
+
+def __dir__():
+    return __all__
 
 
 @POSTPROCESSOR_BUILDER.register("BasePostprocessor")
