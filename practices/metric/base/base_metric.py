@@ -10,7 +10,7 @@ def __dir__():
 @METRIC_BUILDER.register("BaseMetric")
 class BaseMetric:
     def __init__(self, **kwargs):
-        pass
+        self.kwargs = kwargs
 
     def reset(self):
         raise NotImplementedError
@@ -20,3 +20,17 @@ class BaseMetric:
     
     def compute(self):
         raise NotImplementedError
+
+    def __str__(self):
+        string = f"{self.__class__.__name__}("
+        for key, value in self.kwargs.items():
+            string += f"\n  {key}={value},"
+        if len(self.kwargs) > 0:
+            string = string[:-1]
+            string += "\n)" 
+        else:
+            string += ")"
+        return string
+
+    def __repr__(self):
+        return self.__str__()

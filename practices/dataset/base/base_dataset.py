@@ -25,6 +25,7 @@ class BaseDataset:
         if len(data) == 2:
             data, label = data
         else:
+            data = data[0]
             label = None
         if self.preprocessor is not None:
             data, label = self.preprocessor(data, label)
@@ -35,7 +36,7 @@ class BaseDataset:
         if label is not None:
             return data, label
         else:
-            return data
+            return data, None
 
     def build_preprocessor(self, preprocessor_args: dict = None):
         if preprocessor_args is None:

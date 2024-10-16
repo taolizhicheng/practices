@@ -29,7 +29,6 @@ class Builder:
         self._name = name
         self._caches = {}
         self._indices = {}
-        
 
     def __contains__(self, name: str):
         return name in self._caches or name in self._indices
@@ -83,7 +82,7 @@ class Builder:
 
         return self._caches[name]
 
-    def build(self, name: str, args: dict = None):
+    def build(self, name: str, args: dict = None, check_args: bool = False):
         """
         @brief: 根据name从builder中获取对应的类或者函数，并返回
 
@@ -103,11 +102,13 @@ class Builder:
         class_or_func = self.get(name)
         callable_type = get_callable_type(class_or_func)
         if callable_type == 'class':
-            class_instance = check_class_args(class_or_func)
-            return class_instance(**args)
+            if check_args:
+                class_or_func = check_class_args(class_or_func)
+            return class_or_func(**args)
         elif callable_type == 'function':
-            func_instance = check_func_args(class_or_func)
-            return func_instance(**args)
+            if check_args:
+                class_or_func = check_func_args(class_or_func)
+            return class_or_func(**args)
         else:
             raise ValueError(f"Unknown callable type: {callable_type}")
 

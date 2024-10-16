@@ -1,23 +1,35 @@
 import os
+import sys
 import ast
-
-from .constants import TOP_DIR
 
 
 __all__ = ["get_register_info_from_file", "get_register_info_from_directory"]
-
 def __dir__():
     return __all__
 
 
+def get_top_dir(path: str):
+    if os.path.isfile(path):
+        path = os.path.dirname(path)
+
+    while os.path.exists(os.path.join(path, "__init__.py")):
+        path = os.path.dirname(path)
+
+    return path
+
+
 def get_relative_import(path: str):
-    if not path.startswith(TOP_DIR):
+    top_dir = get_top_dir(path)
+    if top_dir not in sys.path:
+        sys.path.append(top_dir)
+    
+    if not path.startswith(top_dir):
         raise ValueError("Path is not within the top directory")
     
     if not path.endswith(".py"):
         raise ValueError("Path is not a Python file")
 
-    relative_path = os.path.relpath(path, TOP_DIR)
+    relative_path = os.path.relpath(path, top_dir)
     base_name = os.path.basename(relative_path)
     if base_name == "__init__.py":
         relative_path = os.path.dirname(relative_path)
